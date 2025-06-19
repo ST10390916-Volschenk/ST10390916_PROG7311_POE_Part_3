@@ -10,7 +10,7 @@ namespace ST10390916_PROG7311_POE.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\MSSQLLocalDB;Database=PROG7311DB;Trusted_Connection=True");
+                @"Server=(localdb)\MSSQLLocalDB;Database=PROG7311DBVolschenk;Trusted_Connection=True");
         }
 
         public DbSet<Product> Products { get; set; }
