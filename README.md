@@ -1,6 +1,8 @@
 # PROG 7311 POE Part 2 ST10390916
-GitHub repository: https://github.com/ST10390916-Volschenk/ST10390916_PROG7311_POE
 
+Changes made for part 3:
+ - Changed the name of the database from PROG7311DB to PROG7311DBVolschenk as this could have matched other students database names and caused problems on the markers computer.
+ - Added more pre-populated data and added pre-populated users to fix the auto-login feature.
 # How to run this app locally using Visual Studio:
 
 Open the github link that will take you to the project repository in GitHub.
