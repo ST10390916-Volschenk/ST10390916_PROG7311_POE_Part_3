@@ -59,6 +59,7 @@ namespace ST10390916_PROG7311_POE.Services
         public void AddEmployee()
         {
             User employee = new User();
+            //employee.UserID = 0;
             employee.FirstName = "Admin";
             employee.LastName = "Admin";
             employee.Email = "admin@admin.com";
@@ -68,14 +69,43 @@ namespace ST10390916_PROG7311_POE.Services
             AddNewUser(employee);
         }
 
+        //prepopulate the database with another admin user
+        public void AddEmployee2()
+        {
+            User employee = new User();
+            //employee.UserID = 1;
+            employee.FirstName = "Kevin";
+            employee.LastName = "Bacon";
+            employee.Email = "kevin@bacon.com";
+            employee.Password = "123456";
+            employee.Role = UserRole.Employee;
+
+            AddNewUser(employee);
+        }
+
         //prepopulate the database with a farmer user
         public void AddFarmer()
         {
             User farmer = new User();
+            //farmer.UserID = 2;
             farmer.FirstName = "Farmer";
             farmer.LastName = "Farmer";
             farmer.Email = "farmer@farmer.com";
             farmer.Password = "Farmer";
+            farmer.Role = UserRole.Farmer;
+
+            AddNewUser(farmer);
+        }
+
+        //prepopulate the database with a farmer user
+        public void AddFarmer2()
+        {
+            User farmer = new User();
+            //farmer.UserID = 3;
+            farmer.FirstName = "Gavin";
+            farmer.LastName = "van Wyk";
+            farmer.Email = "gavinvanwyk@gmail.com";
+            farmer.Password = "123456";
             farmer.Role = UserRole.Farmer;
 
             AddNewUser(farmer);

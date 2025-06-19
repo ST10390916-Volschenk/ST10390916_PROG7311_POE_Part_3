@@ -39,6 +39,8 @@ app.MapControllerRoute(
 
 app.UseSession();
 
+//Code used for pre-population of database
+
 AppDBContext context = new AppDBContext();
 UserService userService = new UserService();
 ProductService product = new ProductService();
@@ -46,7 +48,9 @@ ProductService product = new ProductService();
 if (context.Users.ToList<User>().Count < 1)
 {
     userService.AddEmployee();
+    userService.AddEmployee2();
     userService.AddFarmer();
+    userService.AddFarmer2();
 }
 
 if (context.Products.ToList<Product>().Count < 1)

@@ -65,13 +65,23 @@ namespace ST10390916_PROG7311_POE.Services
             if (context.Products.ToList<Product>().Count < 1)
             {
                 Product product = new Product();
-                product.UserID = 1;
+                product.UserID = 3;
                 product.ProductName = "Apple";
                 product.Category = ProductCategory.Crops;
                 product.Price = 10.00m;
                 product.ProductionDate = DateOnly.FromDateTime(DateTime.Now);
-                product.ImagePath = "/images/apple.jpg";
+                product.ImagePath = "/images/Apples.png";
                 AddProduct(product);
+
+                Product product1 = new Product();
+                product1.UserID = 4;
+                product1.ProductName = "Solar panel";
+                product1.Category = ProductCategory.Crops;
+                product1.Price = 10.00m;
+                product1.ProductionDate = DateOnly.FromDateTime(DateTime.Now);
+                product1.ImagePath = "/images/u10_0f4a3d93-3a42-44b1-acc0-bfd042044e9d.jpg";
+                AddProduct(product1);
+
             }
         }
 
