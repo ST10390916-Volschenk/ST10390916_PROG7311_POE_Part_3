@@ -1,7 +1,7 @@
 # PROG 7311 POE Part 2 ST10390916
 
 Changes made for part 3:
- - Changed the name of the database from PROG7311DB to PROG7311DBVolschenk as this could have matched other students database names and caused problems on the marker's computer.
+ - Changed the name of the database from PROG7311DB to PROG7311DBVolschenk as this could have matched other student database names and caused problems on the marker's computer.
  - Added more pre-populated data and added pre-populated users to fix the auto-login feature.
 # How to run this app locally using Visual Studio:
 
