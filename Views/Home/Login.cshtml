@@ -1,0 +1,63 @@
+﻿@model ST10390916_PROG7311_POE.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+    <div class="card p-4" style="width: 100%; max-width: 400px; border-radius: 1rem; border-width:1.5px">
+        <div class="card-header text-center" style="border-radius: 0.5rem">
+            <h4 class="mb-0" style="color: #f5f3e7">Login</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Login" method="post" id="loginForm">
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" required id="emailInput" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" type="password" required id="passwordInput" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3 text-center">
+                    <input type="submit" value="Log In" class="btn btn-success w-100" />
+                </div>
+
+                @if (ViewData["LoginFailed"] != null)
+                {
+                    <div class="alert alert-danger text-center">
+                        <strong>@ViewData["LoginFailed"]</strong>
+                    </div>
+                }
+            </form>
+
+            <!-- Autofill Buttons -->
+            <div class="mt-3 text-center">
+                <button class="btn btn-outline-secondary mb-2 w-100" onclick="fillEmployee()">Auto-Fill Employee (for POE markers)</button>
+                <button class="btn btn-outline-secondary w-100" onclick="fillFarmer()">Auto-Fill Farmer (for POE markers)</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function fillEmployee() {
+            document.getElementById('emailInput').value = 'kevin@bacon.com';
+            document.getElementById('passwordInput').value = '123456';
+        }
+
+        function fillFarmer() {
+            document.getElementById('emailInput').value = 'gavinvanwyk@gmail.com';
+            document.getElementById('passwordInput').value = '123456';
+        }
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

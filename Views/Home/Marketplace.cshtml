@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ST10390916_PROG7311_POE.Models.Product>
+@{
+    ViewData["Title"] = "Marketplace";
+    var farmers = ViewData["Farmers"] as List<ST10390916_PROG7311_POE.Models.User>;
+    var userService = ViewData["UserService"] as ST10390916_PROG7311_POE.Services.UserService;
+    var enumCategories = ViewData["Categories"] as List<ST10390916_PROG7311_POE.Models.ProductCategory>;
+    var categories = enumCategories?.Select(c => c.ToString()).ToList() ?? new List<string>();
+    string categoryFilter = ViewBag.Category as string;
+    string dateFilter = ViewBag.ProductionDate as string;
+}
+
+<div class="container mt-4" style="margin-bottom: 30px">
+    <h2 class="d-flex justify-content-between align-items-center mb-4">Marketplace</h2>
+
+    <!-- Filter Form -->
+    <form asp-action="Marketplace" method="get" class="row g-3 mb-4">
+        <div class="col-md-4">
+            <select name="category" class="form-select">
+                <option value="">All Categories</option>
+                @foreach (var category in categories)
+                {
+                    <option value="@category" selected="@(category == categoryFilter ? "selected" : null)">
+                        @category
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <input type="date" name="productionDate" class="form-control" value="@dateFilter" />
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-success w-100">Apply Filters</button>
+        </div>
+    </form>
+
+    @if (Model == null || !Model.Any())
+    {
+        <p class="text-center">No products available.</p>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var item in Model)
+            {
+                var farmer = farmers?.FirstOrDefault(f => f.UserID == item.UserID);
+                <div class="col">
+                    <div class="card h-100 rounded-4 overflow-hidden" style="border-radius: 16px">
+                        <img src="@item.ImagePath" class="card-img-top" alt="@item.ProductName"
+                             style="height: 200px; object-fit: cover; border-top-left-radius: 15.5px; border-top-right-radius: 15.5px;">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ProductName</h5>
+                            <p class="card-text"><strong>Category:</strong> @item.Category</p>
+                            <p class="card-text"><strong>Price:</strong> R @item.Price</p>
+                            <p class="card-text"><strong>Produced on:</strong> @item.ProductionDate.ToString("yyyy-MM-dd")</p>
+                            @if (farmer != null)
+                            {
+                                <p class="card-text mb-1">
+                                    <strong>Farmer:</strong>
+                                    @userService.GetUser(item.UserID).FirstName @userService.GetUser(item.UserID).LastName
+                                </p>
+                                <div class="d-flex justify-content-end">
+                                    <a asp-action="FarmerDetails" asp-route-UserID="@item.UserID"
+                                       class="btn btn-outline-success btn-sm px-3" style="min-width: 140px;">
+                                        View Profile
+                                    </a>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+    }
+</div>

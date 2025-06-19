@@ -1,0 +1,64 @@
+﻿@model ST10390916_PROG7311_POE.Models.Product
+
+@{
+    ViewData["Title"] = "Add Product";
+    var userID = ViewData["UserID"];
+}
+
+<div class="container d-flex align-items-center justify-content-center" style="margin-bottom:30px">
+    <div class="card p-4 " style="width: 100%; max-width: 500px; border-radius: 1rem; border-width: 1.5px;">
+        <div class="card-header text-center" style="border-radius: 10px">
+            <h4 class="mb-0" style="color:#f5f3e7">Add Product</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="AddProduct" enctype="multipart/form-data" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="UserID" value="@userID" />
+
+                <div class="form-group mb-3">
+                    <label asp-for="ProductName" class="form-label">Product Name</label>
+                    <input asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Category" class="form-label">Category</label>
+                    <select asp-for="Category" class="form-select" asp-items="Html.GetEnumSelectList<ST10390916_PROG7311_POE.Models.ProductCategory>()">
+                        <option value="">-- Select Category --</option>
+                    </select>
+                    <span asp-validation-for="Category" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group mb-3">
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="ProductionDate" class="form-label">Production Date</label>
+                    <input asp-for="ProductionDate" class="form-control" type="date" />
+                    <span asp-validation-for="ProductionDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="ProductImage" class="form-label"></label>
+                    <input asp-for="ProductImage" class="form-control" type="file" />
+                    <span asp-validation-for="ProductImage" class="text-danger"></span>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success w-100">Create Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

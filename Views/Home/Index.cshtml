@@ -1,0 +1,45 @@
+﻿@inject IHttpContextAccessor httpContextAccessor
+@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Home Page";
+    var userID = httpContextAccessor.HttpContext.Session.GetInt32("UserID");
+    var userRole = httpContextAccessor.HttpContext.Session.GetString("UserRole");
+}
+
+<style>
+    body {
+        background-image: url('/images/farm.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .home-card {
+        background-color: rgba(245, 243, 231);
+        border-radius: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<div class="container d-flex align-items-center justify-content-center" style="min-height: 90vh;">
+    <div class="card p-4 text-center home-card" style="max-width: 600px; width: 100%;">
+        <div class="card-header" style="border-radius: 10px">
+            <h2 style="color:#f5f3e7">Welcome to Agri Connect</h2>
+        </div>
+        <div class="card-body">
+            <p class="lead">
+                Agri Connect is a platform that enables farmers to market their products and connect with other farmers.
+                With Agri Connect, farmers can sell more and widen their network of people with ease.
+            </p>
+            
+            @if ((userID == -1) || (userID == null))
+            {
+                <a asp-controller="Home" asp-action="Login" class="btn mt-3">
+                    Login
+                </a>
+            }
+            
+        </div>
+    </div>
+</div>

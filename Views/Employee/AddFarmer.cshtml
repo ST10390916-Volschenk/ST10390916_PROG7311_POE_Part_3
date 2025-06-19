@@ -1,0 +1,53 @@
+﻿@model ST10390916_PROG7311_POE.Models.User
+
+@{
+    ViewData["Title"] = "Add Farmer";
+}
+
+<div class="container d-flex align-items-center justify-content-center" style="margin-bottom: 30px">
+    <div class="card p-4" style="width: 100%; max-width: 500px; border-radius: 1rem;">
+        <div class="card-header text-center" style="border-radius: 0.5rem">
+            <h4 class="mb-0" style="color: #f5f3e7;">Add Farmer</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="AddFarmer" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="FirstName" class="form-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="LastName" class="form-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <input type="hidden" asp-for="Role" value="Farmer" />
+
+                <div class="form-group mb-3 text-center">
+                    <input type="submit" value="Create" class="btn btn-success w-100" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

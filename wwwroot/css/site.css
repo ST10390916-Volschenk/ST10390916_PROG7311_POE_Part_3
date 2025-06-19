@@ -1,0 +1,164 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f3e7;
+    color: #004d00;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+a {
+    color: #004d00;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: blue;
+        text-decoration-thickness: 5px;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    color: #004d00;
+    font-weight: 600;
+}
+
+.btn-primary, .btn-success, .btn {
+    background-color: #004d00;
+    border: none;
+    color: #f5f3e7;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #2e4e2d;
+}
+
+input, select, textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 10px;
+    background-color: #fff;
+    color: #2e4e2d;
+}
+
+select.form-select-sm {
+    background-color: #f5f3e7;
+}
+
+.card {
+    border: 1px solid #004d00;
+    border-radius: 10px;
+    background-color: #f5f3e7;
+}
+
+.card-header {
+    background-color: #004d00;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.card-body {
+    background-color: #f5f3e7;
+    border-radius: 16px;
+}
+
+.card .card-img-top {
+    border-bottom: 1px solid #ccc;
+}
+
+.card .card-title {
+    color: #004d00;
+    border-radius: 10px;
+}
+
+.card .card-text {
+    font-size: 0.95rem;
+    color: #4d4d4d;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th {
+    background-color: #d9d4c3;
+    color: #2e4e2d;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f0eee5;
+}
+
+.table-striped tbody tr:hover {
+    background-color: #e1e0d3;
+}
+
+.navbar {
+    background-color: #004d00;
+    color: #f5f3e7;
+}
+
+    .navbar a {
+        color: #f5f3e7;
+        text-decoration-thickness: 2px;
+    }
+
+nav-link {
+    color: #f5f3e7;
+    text-decoration-thickness: 2px;
+}
+
+.nav-item {
+    color: #f5f3e7;
+}
+
+footer {
+    background-color: #004d00;
+    color: #f5f3e7;
+    text-align: center;
+    width: 100%;
+}
+
+.ms-auto {
+    color: #f5f3e7;
+}
+
+.text-primary {
+    color: #004d00 !important;
+}
+
+.bg-primary {
+    background-color: #004d00 !important;
+}
+
+.bg-success {
+    background-color: #004d00 !important;
+}
+
+.text-white {
+    color: white;
+}
+
+
+
