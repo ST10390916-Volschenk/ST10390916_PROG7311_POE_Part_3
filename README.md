@@ -6,16 +6,12 @@ Changes made for part 3:
 
 The following login details can be used if the auto-login does not work:
 
-Employee:
-
+**Employee**
 Email: admin@admin.com
-
 Password: Admin1
 
-Farmer:
-
+**Farmer**
 Email: farmer@farmer.com
-
 Password: Farmer
 
 # How to run this app locally using Visual Studio:
