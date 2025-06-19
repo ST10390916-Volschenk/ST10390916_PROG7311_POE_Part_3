@@ -5,12 +5,17 @@ Changes made for part 3:
  - Added more pre-populated data and added pre-populated users to fix the auto-login feature.
 
 The following login details can be used if the auto-login does not work:
+
 Employee:
+
 Email: admin@admin.com
+
 Password: Admin1
 
 Farmer:
+
 Email: farmer@farmer.com
+
 Password: Farmer
 
 # How to run this app locally using Visual Studio:
